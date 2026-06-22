@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cozy Bean | Loja</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+   !-- ===================================
+         NAVBAR
+    ==================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand logo" href="#">
+                THE COZY BEAN
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#delivery" class="nav-link">Delivery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#reservas" class="nav-link">Reservas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#galeria" class="nav-link">Galeria</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#faq" class="nav-link">FAQ</a>
+                    </li>
+
+                </ul>
+
+                <div class="d-flex gap-2">
+
+                    <button class="btn btn-caramel">
+                        Cadastro
+                    </button>
+
+                    <button class="btn btn-outline-light">
+                        Login
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <header class="product-hero">
+        <div class="container text-center">
+            <h1>Loja - Produtos</h1>
+            <p class="lead">Compre nossos cafés, blends e acessórios artesanais.</p>
+        </div>
+    </header>
+
+    <main class="section-padding" id="produtos">
+        <div class="container">
+            <h2 class="section-title">Menu da Loja</h2>
+            <div class="product-grid">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <img src="img/galeria15.png" alt="Blend Especial">
+                    <div class="card-body">
+                        <h5>Blend Especial</h5>
+                        <p class="mb-1">Torrefação média, notas de chocolate e caramelo.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="price">R$ 39,90</div>
+                            <button class="btn add-btn add-to-cart" data-name="Blend Especial" data-price="39.90">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <img src="img/galeria10.png" alt="Café Premium">
+                    <div class="card-body">
+                        <h5>Café Premium</h5>
+                        <p class="mb-1">Seleção especial de grãos, aroma marcante.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="price">R$ 49,90</div>
+                            <button class="btn add-btn add-to-cart" data-name="Café Premium" data-price="49.90">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <img src="img/galeria18.png" alt="Caneca The Cozy Bean">
+                    <div class="card-body">
+                        <h5>Caneca The Cozy Bean</h5>
+                        <p class="mb-1">Caneca em cerâmica 350ml - edição limitada.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="price">R$ 29,90</div>
+                            <button class="btn add-btn add-to-cart" data-name="Caneca The Cozy Bean" data-price="29.90">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 (exemplo) -->
+                <div class="product-card">
+                    <img src="img/galeria2.png" alt="Coador Manual">
+                    <div class="card-body">
+                        <h5>Coador Manual</h5>
+                        <p class="mb-1">Coador em inox para preparo manual.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="price">R$ 59,90</div>
+                            <button class="btn add-btn add-to-cart" data-name="Coador Manual" data-price="59.90">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Offcanvas Carrinho -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartOffcanvasLabel">Seu Carrinho</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cart-items" class="list-group mb-3"></ul>
+            <div class="d-flex justify-content-between align-items-center">
+                <strong>Total:</strong>
+                <div id="cart-total">R$ 0.00</div>
+            </div>
+            <div class="mt-3">
+                <button id="clear-cart" class="btn btn-outline-secondary w-100">Limpar Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (reaproveita o footer do site) -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <h3 class="footer-brand">THE COZY BEAN</h3>
+                    <p class="footer-text">A melhor seleção de cafés para sua casa.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h5 class="footer-title">Contato</h5>
+                    <p class="footer-text mb-2">(21) 99999-9999</p>
+                    <p class="footer-text">contato@thecozybean.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h5 class="footer-title">Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#cardapio">Cardápio</a></li>
+                        <li><a href="index.html#galeria">Galeria</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h5 class="footer-title">Redes Sociais</h5>
+                    <div class="social d-flex gap-2">
+                        <a href="https://www.instagram.com/" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me/552199567454" class="whatsapp" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/pt-BR/" class="tiktok" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://x.com/?lang=pt" class="x" aria-label="X"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom mt-4">
+                <p>&copy; 2026 Minha Cafeteria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

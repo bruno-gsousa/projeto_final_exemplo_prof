@@ -80,3 +80,61 @@ window.addEventListener('scroll', () => {
     }
 
 });
+
+// ================================
+// CARRINHO SIMPLES (vendas.html)
+// ================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const cart = [];
+    const cartCountEl = document.getElementById('cart-count');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const clearBtn = document.getElementById('clear-cart');
+
+    function formatPrice(v){
+        return 'R$ ' + Number(v).toFixed(2).replace('.', ',');
+    }
+
+    function updateCartUI(){
+        if(!cartCountEl) return;
+        cartCountEl.innerText = cart.length;
+        if(!cartItemsEl) return;
+        cartItemsEl.innerHTML = '';
+        let total = 0;
+        cart.forEach((item, idx) =>{
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `<div>${item.name}</div><div>${formatPrice(item.price)}</div>`;
+            cartItemsEl.appendChild(li);
+            total += Number(item.price);
+        });
+        if(cartTotalEl) cartTotalEl.innerText = formatPrice(total);
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const name = btn.dataset.name;
+            const price = btn.dataset.price;
+            cart.push({ name, price });
+            updateCartUI();
+            // show offcanvas if possible
+            const offcanvasEl = document.getElementById('cartOffcanvas');
+            if(offcanvasEl){
+                const bs = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+                bs.show();
+            }
+        });
+    });
+
+    if(clearBtn){
+        clearBtn.addEventListener('click', ()=>{
+            cart.length = 0;
+            updateCartUI();
+        });
+    }
+
+    updateCartUI();
+
+});
